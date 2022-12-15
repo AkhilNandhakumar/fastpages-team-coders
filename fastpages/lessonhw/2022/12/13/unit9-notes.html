@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -127,6 +127,7 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Access-Modifiers:-Public,-Private,-Protected">Access Modifiers: Public, Private, Protected </a></li>
 <li class="toc-entry toc-h3"><a href="#Subclasses">Subclasses </a></li>
 <li class="toc-entry toc-h3"><a href="#Overload-&-Override">Overload &amp; Override </a></li>
 <li class="toc-entry toc-h3"><a href="#Polymorphism">Polymorphism </a></li>
@@ -139,6 +140,75 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Access-Modifiers:-Public,-Private,-Protected">
+<a class="anchor" href="#Access-Modifiers:-Public,-Private,-Protected" aria-hidden="true"><span class="octicon octicon-link"></span></a>Access Modifiers: Public, Private, Protected<a class="anchor-link" href="#Access-Modifiers:-Public,-Private,-Protected"> </a>
+</h3>
+<ul>
+<li>Public: can be accessed from anywhere inside the program, that is, they can be accessed within the same class as well as from outside the different classes</li>
+<li>Private: they can be accessed only within the same class where they have been declared, they will not be visible to the outside world</li>
+<li>Protected: used to access the methods or data members of a class within the same package as well as outside the package but only through inheritance<ul>
+<li>more visibility than private, less than public</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cow</span> <span class="p">{</span>
+
+    <span class="c1">// instance variables</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">cowType</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">sound</span><span class="p">;</span>
+    <span class="kd">protected</span> <span class="kt">int</span> <span class="n">numMilkings</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Cow</span> <span class="p">(</span><span class="n">String</span> <span class="n">cowType</span><span class="p">,</span> <span class="n">String</span> <span class="n">sound</span><span class="p">){</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">numMilkings</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">cowType</span> <span class="o">=</span> <span class="n">cowType</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">sound</span> <span class="o">=</span> <span class="n">sound</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNumMilkings</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="n">numMilkings</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setSound</span><span class="p">(</span><span class="n">String</span> <span class="n">sound</span><span class="p">){</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">sound</span> <span class="o">=</span> <span class="n">sound</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s">"Type of Cow: "</span> <span class="o">+</span> <span class="n">cowType</span> <span class="o">+</span> <span class="s">"; "</span> <span class="o">+</span> <span class="s">"Sound: "</span> <span class="o">+</span> <span class="n">sound</span> <span class="o">+</span> <span class="s">"; "</span> <span class="o">+</span> <span class="s">"Number of Milkings: "</span> <span class="o">+</span> <span class="n">numMilkings</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Cow</span> <span class="n">firstCow</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cow</span><span class="p">(</span><span class="s">"holstein"</span><span class="p">,</span> <span class="s">"moo"</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">firstCow</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Number of Milkings: "</span> <span class="o">+</span> <span class="n">firstCow</span><span class="p">.</span><span class="na">getNumMilkings</span><span class="p">());</span>
+        <span class="n">firstCow</span><span class="p">.</span><span class="na">setSound</span><span class="p">(</span><span class="s">"oink!"</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Mutated Cow:"</span> <span class="o">+</span> <span class="n">firstCow</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Cow</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
